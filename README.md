@@ -1,73 +1,68 @@
-# Welcome to your Lovable project
+# Vtiger CRM
 
-## Project info
+Vtiger is a PHP based web application that enables businesses to increase sales wins, marketing ROI, and support satisfaction by providing tools for employees and management work more effectively, capture more data, and derive new actionable insights from across the customer lifecycle.
 
-**URL**: https://lovable.dev/projects/a02469ac-7658-4fc3-8544-b61790a3b0b7
+## Get involved
 
-## How can I edit this code?
+Development on vtiger is done at https://code.vtiger.com
 
-There are several ways of editing your application.
+**Note**: Any contributions submitted to Vtiger project should be made available under Vtiger Public License. 
+If contribution has any patented code, or commercial code, then please communicate with Vtiger team before making the contribution.
 
-**Use Lovable**
+https://www.vtiger.com/vtiger-public-license/
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a02469ac-7658-4fc3-8544-b61790a3b0b7) and start prompting.
+To register for an account, please contact community @ vtiger.com, you will need this to file issues and/or fix the code
+Once you have an account, you can [browse the code](https://code.vtiger.com/vtiger/vtigercrm/tree/master),
+[see if your issue is already reported](https://code.vtiger.com/vtiger/vtigercrm/issues) and if you have a new problem
+to report you can [create an issue](https://code.vtiger.com/vtiger/vtigercrm/issues/new?issue)
 
-Changes made via Lovable will be committed automatically to this repo.
+If you then want to fix the issue (or another issue) you can create your own fork of vtiger to work on using the
+fork button on the vtiger project, this will create a new git repository for you at
+    
+    https://code.vtiger.com/yourname/vtigercrm.git
 
-**Use your preferred IDE**
+on your computer you will need a git client installed and you need to tell git who you are:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+    git config --global user.name "YOUR NAME"
+    git config --global user.email "YOUR EMAIL ADDRESS"
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+now clone your fork of vtiger
 
-Follow these steps:
+    git clone https://code.vtiger.com/yourname/vtigercrm.git
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+this will pull down from the server your copy of the vtiger code and all the history.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+You will make a new branch for your changes, you can give it a descriptive name, once the branch is created
+you will switch to that branch using the checkout command
 
-# Step 3: Install the necessary dependencies.
-npm i
+    git branch fix_projects_on_calendar
+    git checkout fix_projects_on_calendar
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Before you install, you need to run ```composer update```
 
-**Edit a file directly in GitHub**
+Now you can make your changes and commit all changed files with
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+    git commit -a
 
-**Use GitHub Codespaces**
+Do reference the issue number in your commit message, e.g. "fix #2 display projects on the calendar" the number will
+allow the system to link the commit to the issue.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Now you can push your branch to the server, this creates the branch on the server end and populates it
 
-## What technologies are used for this project?
+    git push --set-upstream origin fix_projects_on_calendar
 
-This project is built with:
+look at the branch on code.vtiger.com and create a merge request from your branch
+to the upstream master, this will be reviewed to see if it fixes the 
+issue and if all is good will be merged into the upstream code.
+You can then switch back to your master branch with
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+    git checkout master
 
-## How can I deploy this project?
+And you can create additional feature branches from there to fix different things.
 
-Simply open [Lovable](https://lovable.dev/projects/a02469ac-7658-4fc3-8544-b61790a3b0b7) and click on Share -> Publish.
+If there have been other changes to the central vtiger code that you want in your work area then you can add the central
+repository as an upstream remote (only need to do this bit once), then you can fetch changes and merge them
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+    git remote add upstream https://code.vtiger.com/vtiger/vtigercrm.git
+    git fetch upstream
+    git merge upstream/master
